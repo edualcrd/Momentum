@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/logIn/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/Icono Logo Negro PNG.png">
+    <title>Log In</title>
+</head>
+<body>
+
+<style>
+    /* --- ESTILOS GENERALES --- */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    /* --- CONTENEDOR PRINCIPAL --- */
+    .split-container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    /* --- MITAD IZQUIERDA (GIF) --- */
+    .left-half {
+        flex: 1;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .left-half img {
+        max-width: 80%;
+        height: auto;
+    }
+
+
+    /* --- MITAD DERECHA (LOGIN) --- */
+    .right-half {
+        flex: 1;
+        background: #fff1c7;
+        display: flex;
+        flex-direction: column; /* Para apilar logo y form */
+        align-items: center;   /* Para centrar todo horizontalmente */
+        justify-content: center; /* Para centrar el bloque verticalmente */
+        padding: 20px;
+    }
+    .logoCompleto img {
+        width: 100%;
+        max-width: 500px; /* Ajusta el tamaño máximo del logo */
+        height: auto;
+        margin-bottom: 40px; /* Espacio entre el logo y el formulario */
+    }
+
+    /* --- ESTILOS DEL FORMULARIO --- */
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px; /* Ancho del formulario */
+    }
+    .login-form label {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+    }
+    .input-field {
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+    .login-button {
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        background-color: #000;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .login-button:hover {
+        background-color: #333;
+    }
+    .links-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    .links-container a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .links-container a:hover {
+        text-decoration: underline;
+    }
+</style>
+<div class="split-container">
+    <div class="left-half">
+        <img src="GIF Log In.gif" alt="Gif de un Stickman haciendo skate" style="width: 727px; height: 529px;">
+    </div>
+    <div class="right-half">
+        <div class="logoCompleto">
+            <img src="Logo Negro.png" alt="Logo de la marca">
+        </div>
+
+        <form class="login-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="input-field" required>
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" class="input-field" required>
+
+            <button type="submit" class="login-button">Entrar</button>
+
+            <div class="links-container">
+                <a href="#">¿Has olvidado tu contraseña?</a>
+                <a href="/signIn/index.html">Crear cuenta</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html> 
