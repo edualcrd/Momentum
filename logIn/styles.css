@@ -1,0 +1,90 @@
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .split-container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .left-half {
+        flex: 1;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .left-half img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .right-half {
+        flex: 1;
+        background: #fff1c7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+        justify-content: center; 
+        padding: 20px;
+    }
+    .logoCompleto img {
+        width: 100%;
+        max-width: 500px; 
+        height: auto;
+        margin-bottom: 40px; 
+    }
+
+    
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px; 
+    }
+    .login-form label {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+    }
+    .input-field {
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+    .login-button {
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        background-color: #000;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .login-button:hover {
+        background-color: #333;
+    }
+    .links-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    .links-container a {
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .links-container a:hover {
+        text-decoration: underline;
+    }
