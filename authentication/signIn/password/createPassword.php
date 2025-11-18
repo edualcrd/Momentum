@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="container">
-            <img class="logo" src="../Logo Blanco.png" alt="Logo de la aplicación">
+            <img class="logo" src="/momentum/img/Logo Blanco.png" alt="Logo de la aplicación">
             <h1>Crear tu contraseña</h1>
             <p>Correo: <?php echo htmlspecialchars($email); ?></p>
 
