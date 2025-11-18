@@ -1,0 +1,150 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f7f7f7; /* Fondo gris claro para el área de contenido */
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff1c7; /* Color de fondo del login */
+    padding: 15px 50px;
+    height: 60px; /* Altura fija para el header */
+}
+
+.logo img {
+    height: 30px; /* Ajusta el tamaño de tu logo */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    color: #000; /* Color negro para el texto */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-info .user-icon {
+    height: 18px;
+    margin-right: 5px;
+}
+
+main {
+    /* Mantenemos estas propiedades que permiten el apilamiento y centrado */
+    display: flex;
+    flex-direction: column; /* Para que los posts se apilen verticalmente */
+    align-items: center;    /* ESTA ES LA PROPIEDAD CLAVE para centrar los posts */
+    
+    width: 100%;
+    /* Definimos el ancho máximo para el contenido de la página */
+    max-width: 900px; 
+    
+    padding: 20px;
+    padding-top: 80px; /* Espacio para el header fijo */
+    
+    /* ¡ADICIONAL IMPORTANTE! Centrar el contenedor 'main' en la ventana */
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.profile-card {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Agregamos la sombra blanca/gris para que resalte */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content; /* Se ajusta al contenido (la imagen y el tag) */
+
+    /* --- POSICIONAMIENTO FIJO/ABSOLUTO COMO EN EL PROTOTIPO --- */
+    
+    /* Usamos 'fixed' si quieres que siga al usuario al hacer scroll. */
+    /* Usamos 'absolute' si quieres que se quede quieta al hacer scroll, anclada al body. */
+    position: fixed; /* Mantenemos 'fixed' para que se quede visible */
+    
+    right: 30px; /* Separación desde el borde derecho de la ventana */
+    top: 80px;  /* Distancia desde la parte superior (debajo del header) */
+    
+    z-index: 990; /* Asegura que esté por encima de los posts */
+}
+
+.profile-card .profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-card .username {
+    font-weight: bold;
+    color: #000;
+    background-color: #FFD700; /* Color amarillo del tag */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.video-post {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px; /* Ancho máximo para el post del video */
+    text-align: center;
+}
+
+.video-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Para hacer el contenedor cuadrado, ajusta si tu video no es 1:1 */
+    position: relative;
+    background-color: #000; /* Fondo negro para el video */
+}
+
+.video-gif, .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Para que el GIF/Video se ajuste sin cortarse */
+}
+
+.video-post .post-title {
+    font-size: 24px;
+    margin: 15px 0 5px;
+    color: #333;
+}
+
+.video-post .post-date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .profile-card {
+        position: static; /* Vuelve a la posición normal en pantallas pequeñas */
+        align-self: center; /* Centra la tarjeta de perfil */
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    main {
+        padding-top: 20px; /* Ajusta el padding superior */
+    }
+}

@@ -1,33 +1,32 @@
 <?php
 session_start();
 
-// Evitar acceso ilegal
 if (!isset($_SESSION['email_registro'])) {
-    header("Location: /authentication/signIn/signIn.php");
+    header("Location: index.html");
     exit;
 }
 
 $email = $_SESSION['email_registro'];
 $password = $_POST['password'];
+$confirm_password = $_POST['confirm_password'];
 
-// Encriptar contraseña
+// Validar que las contraseñas coincidan
+if ($password !== $confirm_password) {
+    die("Las contraseñas no coinciden. <a href='createPassword.php'>Volver</a>");
+}
+
+// Encriptar la contraseña
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
-// =====================================
-// Aquí harías el INSERT en la base de datos
-//
-// Ejemplo:
-//
-// $pdo = new PDO("mysql:host=localhost;dbname=tu_base", "root", "");
+// Aquí guardarías en la base de datos
+// require 'conexion.php';
 // $stmt = $pdo->prepare("INSERT INTO usuarios (email, password) VALUES (?,?)");
 // $stmt->execute([$email, $hash]);
-//
-// =====================================
 
 // Limpiar sesión
 unset($_SESSION['email_registro']);
 
 // Redirigir al login
-header("Location: /authentication/logIn/index.html");
+header("Location: login.html");
 exit;
 ?>

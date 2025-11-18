@@ -13,6 +13,6 @@ if (!$email) {
 $_SESSION['email_registro'] = $email;
 
 // 3. Redirigir a la página para crear contraseña
-header("Location: /authentication/signIn/password/createPassword.php");
+header("Location: /momentum/authentication/signIn/password/createPassword.php");
 exit;
 ?>

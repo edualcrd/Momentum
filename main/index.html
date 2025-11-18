@@ -15,7 +15,7 @@
 
     <header class="main-header">
         <div class="logo-area">
-            <img src="/Black Logo.png" alt="Logo de Momentum" class="header-logo">
+            <img src="../../authentication/login/Black Logo.png" alt="Logo de Momentum" class="header-logo">
         </div>
         <div class="user-area">
             <i class="fas fa-user-circle user-icon"></i>
@@ -25,7 +25,7 @@
 
     <section class="profile-section">
         <div class="profile-content">
-            <img src="profile-pic.jpg" alt="Imagen de perfil" class="profile-pic">
+            <img src="https://i.pinimg.com/736x/ee/d5/6b/eed56b66d188b675341c1ef5eb50b781.jpg" alt="Imagen de perfil" class="profile-pic">
             
                 <div class="profile-info">
                     <div class="user-details">
@@ -39,41 +39,53 @@
     </section>
 
 <main class="content-section">
+    
     <div class="tricks-gallery">
         
         <i class="fas fa-chevron-left carousel-arrow" id="leftArrow"></i>
         
         <div class="tricks-list" id="tricksList">
+            
             <div class="trick-card">
-                <h2 class="trick-name">BIGSPIN</h2>
-                <span class="trick-date">13/02/2025</span>
-                <div class="video-placeholder">[Video de BIGSPIN]</div> 
-            </div>
-
-            <div class="trick-card">
-                <h2 class="trick-name">OLLIE</h2>
-                <span class="trick-date">27/01/2025</span>
-                <div class="video-placeholder">[Video de OLLIE]</div> 
-            </div>
-
-            <div class="trick-card">
-                <h2 class="trick-name">KICKFLIP</h2>
-                <span class="trick-date">18/12/2024</span>
-                <div class="video-placeholder">[Video de KICKFLIP]</div> 
-            </div>
-
-            <div class="trick-card hidden-on-mobile">
-                <h2 class="trick-name">HEELFLIP</h2>
-                <span class="trick-date">27/01/2025</span>
-                <div class="video-placeholder">[Video de HEELFLIP]</div> 
-            </div>
-        </div>
+                 <h2 class="trick-name">BIGSPIN</h2>
+                 <span class="trick-date">13/02/2025</span>
+                 <div class="video-container"> 
+                     <video class="trick-video" autoplay loop muted playsinline>
+                         <source src="https://64.media.tumblr.com/415c94ea946503b5e7fa31a0d597e4f4/tumblr_o0eijtGzSy1udh5n8o1_r3_500.mp4" type="video/mp4">
+                         Tu navegador no soporta la etiqueta de video.
+                     </video>
+                 </div>
+            </div> <div class="trick-card">
+                 <h2 class="trick-name">OLLIE</h2>
+                 <span class="trick-date">27/01/2025</span>
+                 <div class="video-container">
+                     <img src="https://64.media.tumblr.com/ecc836b8846dbe2964b7f021ad348ae8/tumblr_p3p65lmiKh1qcjlv3o1_400.gif" 
+                          alt="GIF de OLLIE" 
+                          class="trick-video gif-image"> 
+                 </div>
+            </div> <div class="trick-card">
+                 <h2 class="trick-name">KICKFLIP</h2>
+                 <span class="trick-date">18/12/2024</span>
+                 <div class="video-container">
+                     <img src="https://i.pinimg.com/originals/df/97/83/df97830f89348755a091c576c8704359.gif" 
+                          alt="GIF de KICKFLIP" 
+                          class="trick-video gif-image"> 
+                 </div>
+            </div> <div class="trick-card hidden-on-mobile">
+                 <h2 class="trick-name">HEELFLIP</h2>
+                 <span class="trick-date">27/01/2025</span>
+                 <div class="video-container">
+                     <img src="https://64.media.tumblr.com/03da0729376ad39aa7e504231f774eb0/tumblr_p7nhvqivtV1qcjlv3o1_400.gif" 
+                          alt="GIF de HEELFLIP" 
+                          class="trick-video gif-image"> 
+                 </div>
+            </div> </div> <i class="fas fa-chevron-right carousel-arrow" id="rightArrow"></i>
         
-        <i class="fas fa-chevron-right carousel-arrow" id="rightArrow"></i>
-    </div>
-
-    <button class="add-trick-button">
+    </div> <button class="add-trick-button">
         <i class="fas fa-plus"></i> Añadir truco
     </button>
-</main>
+
+</main> ```
+
+
 <script src="/main/carousel.js"></script>

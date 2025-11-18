@@ -26,7 +26,7 @@ html, body {
 
 .header-logo {
     width: auto;
-    height: 30px; /* Ajuste del tamaño del logo */
+    height: 70px; /* Ajuste del tamaño del logo */
 }
 
 .user-area {
@@ -73,8 +73,8 @@ html, body {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 30px; /* Espacio entre la imagen y el texto */
-    border: 3px solid #000;
+    margin-right: 30px; 
+    /* border: 3px solid #000; */ /* Puedes comentarla si prefieres guardarla por si acaso */
     flex-shrink: 0;
 }
 
@@ -224,16 +224,27 @@ html, body {
     margin-bottom: 15px;
 }
 
-.video-placeholder {
+.video-placeholder { /* Puedes mantener este si quieres que siga siendo un placeholder */
+    display: none; /* Oculta el placeholder cuando hay un video */
+}
+
+/* Nuevo contenedor para el video */
+.video-container {
     width: 100%;
-    height: 180px; /* Altura para el contenedor del video */
-    background-color: #ccc; /* Color temporal para el área de video */
+    height: 180px; /* Misma altura que el placeholder */
+    background-color: #000; /* Fondo negro para el video */
     border-radius: 4px;
-    display: flex;
+    overflow: hidden; /* Asegura que el video no se salga de los bordes redondeados */
+    display: flex; /* Para centrar el video si no llena todo el espacio */
     justify-content: center;
     align-items: center;
-    color: #000;
-    font-weight: 600;
+}
+
+.trick-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra el contenedor sin distorsionarse */
+    border-radius: 4px; /* Para que el video también tenga los bordes redondeados */
 }
 
 .carousel-arrow {
