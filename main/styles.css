@@ -1,0 +1,305 @@
+/* RESET y TIPOGRAFÍA - Consistentemente con el log in */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f7f7f7; /* Fondo gris claro para el área de contenido */
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 1. HEADER */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff1c7; /* Color de fondo del login */
+    padding: 15px 50px;
+    height: 60px; /* Altura fija para el header */
+}
+
+.header-logo {
+    width: auto;
+    height: 30px; /* Ajuste del tamaño del logo */
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.user-icon {
+    font-size: 24px;
+    margin-right: 5px;
+    color: #000;
+}
+
+.logout-link {
+    color: #000;
+    text-decoration: none;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
+
+/* 2. SECCIÓN DE PERFIL - CORREGIDA Y REFINADA */
+
+.profile-section {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-content {
+    display: flex; /* Alinea la imagen y el info HORIZONTALMENTE */
+    align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+    max-width: 600px;
+    width: 100%;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px; /* Espacio entre la imagen y el texto */
+    border: 3px solid #000;
+    flex-shrink: 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column; /* Apila los bloques dentro de profile-info (user-details y bio) */
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+/* Nuevo contenedor para los detalles de usuario */
+.user-details {
+    /* Este contenedor aloja el nombre y la etiqueta, y se alinea a la izquierda por defecto */
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    margin-bottom: 20px; /* Espacio entre el nombre/etiqueta y la biografía */
+}
+
+.username {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.edit-icon {
+    font-size: 18px;
+    margin-left: 10px;
+    color: #000;
+    cursor: pointer;
+}
+
+.profile-tag {
+    display: inline-block;
+    background-color: #fff1c7;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.bio-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+}
+
+/* Media Query para móvil: Apilar la imagen arriba del texto en pantallas pequeñas */
+@media (max-width: 768px) {
+    .profile-content {
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+    }
+
+    .profile-pic {
+        margin-right: 0; 
+        margin-bottom: 20px;
+    }
+
+    .profile-info, .user-details {
+        align-items: center; /* Centra el contenido en móvil */
+        text-align: center;
+    }
+    
+    .username {
+        /* Centrar el nombre de usuario y el ícono en móvil */
+        justify-content: center; 
+        width: 100%;
+    }
+}
+
+/* 3. SECCIÓN DE CONTENIDO (GALERÍA DE TRUCOS) */
+.content-section {
+    flex-grow: 1; /* Permite que esta sección ocupe el espacio restante */
+    padding: 20px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tricks-gallery {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative; /* Importante para posicionar las flechas */
+}
+
+.tricks-list {
+    display: flex;
+    gap: 30px;
+    overflow-x: hidden; /* Esto oculta el scrollbar. JS se encargará del desplazamiento. */
+    flex-grow: 1;
+    scroll-behavior: smooth; /* Esto hace que el desplazamiento sea suave y animado */
+    padding: 10px 0; /* Un poco de padding vertical si usas box-shadow */
+}
+
+/* ... (El resto de .trick-card, .trick-name, etc. se mantiene igual) ... */
+
+.carousel-arrow {
+    font-size: 30px;
+    color: #000;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10; /* Asegura que la flecha esté por encima de los trucos */
+    user-select: none; /* Evita que se seleccione el ícono */
+}
+
+/* Estilo para la flecha izquierda */
+#leftArrow {
+    margin-right: 20px; /* Espacio antes del listado */
+}
+
+/* Estilo para la flecha derecha */
+#rightArrow {
+    margin-left: 20px; /* Espacio después del listado */
+}
+
+/* ... (El resto del CSS se mantiene igual) ... */
+
+.trick-card {
+    min-width: 250px; /* Ancho base de cada tarjeta */
+    max-width: 250px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.trick-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.trick-date {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 180px; /* Altura para el contenedor del video */
+    background-color: #ccc; /* Color temporal para el área de video */
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: 600;
+}
+
+.carousel-arrow {
+    font-size: 30px;
+    color: #000;
+    margin-left: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Botón Añadir Truco */
+.add-trick-button {
+    padding: 12px 25px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.add-trick-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.add-trick-button .fas {
+    margin-right: 8px;
+}
+
+/* Media Query: Ocultar el cuarto truco en pantallas más pequeñas */
+@media (max-width: 1100px) {
+    .hidden-on-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header, .content-section {
+        padding: 15px 20px;
+    }
+    
+    .tricks-list {
+        gap: 15px;
+    }
+
+    .trick-card {
+        min-width: 45%; /* Ajuste para mostrar 2 columnas en móvil */
+        max-width: 45%;
+    }
+    
+    .carousel-arrow {
+        font-size: 24px;
+        margin-left: 10px;
+    }
+
+    .profile-pic {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .username {
+        font-size: 24px;
+    }
+}

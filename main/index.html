@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/main/styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/Icono Logo Negro PNG.png">
+    <title>Main - Momentum</title>
+</head>
+<body>
+
+<div class="main-container">
+
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="/Black Logo.png" alt="Logo de Momentum" class="header-logo">
+        </div>
+        <div class="user-area">
+            <i class="fas fa-user-circle user-icon"></i>
+            <a href="/authentication/logIn/index.html" class="logout-link">Cerrar Sesión</a>
+        </div>
+    </header>
+
+    <section class="profile-section">
+        <div class="profile-content">
+            <img src="profile-pic.jpg" alt="Imagen de perfil" class="profile-pic">
+            
+                <div class="profile-info">
+                    <div class="user-details">
+                        <h1 class="username">@jacobgrid39 <i class="fas fa-pencil-alt edit-icon"></i></h1>
+                        <span class="profile-tag">skate kitchen</span>
+                    </div>
+    
+    <p class="bio-text">I don't skate to compete, I skate to create. Concrete is my canvas.</p>
+</div>
+        </div>
+    </section>
+
+<main class="content-section">
+    <div class="tricks-gallery">
+        
+        <i class="fas fa-chevron-left carousel-arrow" id="leftArrow"></i>
+        
+        <div class="tricks-list" id="tricksList">
+            <div class="trick-card">
+                <h2 class="trick-name">BIGSPIN</h2>
+                <span class="trick-date">13/02/2025</span>
+                <div class="video-placeholder">[Video de BIGSPIN]</div> 
+            </div>
+
+            <div class="trick-card">
+                <h2 class="trick-name">OLLIE</h2>
+                <span class="trick-date">27/01/2025</span>
+                <div class="video-placeholder">[Video de OLLIE]</div> 
+            </div>
+
+            <div class="trick-card">
+                <h2 class="trick-name">KICKFLIP</h2>
+                <span class="trick-date">18/12/2024</span>
+                <div class="video-placeholder">[Video de KICKFLIP]</div> 
+            </div>
+
+            <div class="trick-card hidden-on-mobile">
+                <h2 class="trick-name">HEELFLIP</h2>
+                <span class="trick-date">27/01/2025</span>
+                <div class="video-placeholder">[Video de HEELFLIP]</div> 
+            </div>
+        </div>
+        
+        <i class="fas fa-chevron-right carousel-arrow" id="rightArrow"></i>
+    </div>
+
+    <button class="add-trick-button">
+        <i class="fas fa-plus"></i> Añadir truco
+    </button>
+</main>
+<script src="/main/carousel.js"></script>

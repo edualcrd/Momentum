@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="/authentication/signIn/styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="/Icono Logo Negro PNG.png">
+        <link rel="icon" type="image/x-icon" href="/authentication/logIn/Black Logo.png">
         <title>Iniciar Sesión</title>
     </head>
     <body>
@@ -13,12 +13,12 @@
         <h1><b>Da el primer paso,<br> el resto es <i>movimiento</i></b></h1>
         <p>Dirección de correo electrónico</p>
         <form action="/authentication/signIn/signIn.php" method="POST">
-            <input class="input-email" type="email" name="email">
+            <input class="input-email" type="email" name="email" placeholder="johndoe@mail.com" required>
+            <button class="button-next" type="submit">Siguiente</button>
         </form>
-        <button class="button-next" onclick="location.href='/frontend/signIn/password.html'">Siguiente</button>
-        <p class="text-bottom" style="font-size: 14px; margin-top: 50px;">¿Ya tienes una cuenta?</p>
+        <p class="text-bottom">¿Ya tienes una cuenta?</p>
         <div style="display: flex; justify-content: center;">
-            <a class="text-bottom" href="/authentication/logIn/index.html" style="font-size: 14px; color: #FFFFFF; text-decoration: none; margin-top: 10px; text-align: center; font-weight: bold;">Iniciar sesión</a>
+            <a class="text-bottom" href="/authentication/logIn/index.html">Iniciar sesión</a>
         </div>
     </body>
 </html>
