@@ -1,32 +1,33 @@
 <?php
 session_start();
 
+// Importa la conexión correctamente
+require_once __DIR__ . "/../../../php/conexion.php";
+
 if (!isset($_SESSION['email_registro'])) {
-    header("Location: index.html");
+    header("Location: /momentum/authentication/logIn/logIn.php");
     exit;
 }
 
 $email = $_SESSION['email_registro'];
 $password = $_POST['password'];
-$confirm_password = $_POST['confirm_password'];
+$confirm = $_POST['confirm_password'];
 
-// Validar que las contraseñas coincidan
-if ($password !== $confirm_password) {
+if ($password !== $confirm) {
     die("Las contraseñas no coinciden. <a href='createPassword.php'>Volver</a>");
 }
 
-// Encriptar la contraseña
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-// Aquí guardarías en la base de datos
-// require 'conexion.php';
-// $stmt = $pdo->prepare("INSERT INTO usuarios (email, password) VALUES (?,?)");
-// $stmt->execute([$email, $hash]);
+// Insertar usuario
+$sql = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $email, $password_hash);
+$stmt->execute();
 
-// Limpiar sesión
+$stmt->close();
+$conn->close();
 unset($_SESSION['email_registro']);
 
-// Redirigir al login
-header("Location: login.html");
+header("Location: /momentum/authentication/logIn/index.html");
 exit;
-?>

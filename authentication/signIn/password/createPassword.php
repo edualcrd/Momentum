@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['email_registro'])) {
-        header("Location: /index.html");
+        header("Location: ../../logIn/logIn.php");
         exit;
     }
     $email = $_SESSION['email_registro'];
