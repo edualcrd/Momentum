@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum - Nuevo Truco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <img src="/img/Black Logo.png" alt="Momentum Logo" class="logo">
+
+        <div class="user-area">
+            <i class="fas fa-sign-out-alt"></i>
+            <a href="/momentum/authentication/logIn/index.html" class="logout-link">Cerrar Sesión</a>
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <!-- IZQUIERDA -->
+        <section class="form-container">
+            <h2>NUEVO TRUCO</h2>
+
+            <label>NOMBRA TU TRUCO:</label>
+            <input type="text" placeholder="Nombre del truco aquí">
+
+            <label>FECHA:</label>
+            <input type="date" class="date-big">
+        </section>
+
+        <!-- DERECHA -->
+        <section class="preview-container">
+
+            <!-- Caja subir archivo -->
+            <label for="file-input" class="upload-box">
+                <span>Subir archivo</span>
+            </label>
+
+            <!-- Input real oculto -->
+            <input type="file" id="file-input" accept="image/*" hidden>
+
+            <!-- Imagen preview -->
+            <img id="preview-img" class="preview-img" style="display:none;">
+
+            <button class="publish-btn">PUBLICAR</button>
+        </section>
+    </main>
+
+    <!-- SCRIPT PARA PREVIEW -->
+    <script>
+        const fileInput = document.getElementById("file-input");
+        const previewImg = document.getElementById("preview-img");
+
+        fileInput.addEventListener("change", function() {
+            const file = this.files[0];
+            if (file) {
+                previewImg.style.display = "block";
+                previewImg.src = URL.createObjectURL(file);
+
+                // Oculta la caja de subida
+                document.querySelector(".upload-box").style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>
