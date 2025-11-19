@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php } ?>
 
             <div class="links-container">
-                <a href="/momentum/authentication/lostPassword/index.html">¿Has olvidado tu contraseña?</a>
+                <a href="/momentum/authentication/lostPassword/index.php">¿Has olvidado tu contraseña?</a>
                 <a href="/momentum/authentication/signIn/index.html">Crear cuenta</a>
             </div>
         </form>
