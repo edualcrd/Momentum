@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Login correcto
             $_SESSION['usuario_id'] = $id;
             $_SESSION['usuario_email'] = $email;
-            header("Location: /momentum/main/index.html"); // Página protegida
+            header("Location: /Momentum/main/index.html"); // Página protegida
             exit;
         } else {
             $error = "Contraseña incorrecta.";
@@ -44,18 +44,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/momentum/img/Momentum Icon.png">
+    <link rel="icon" type="image/x-icon" href="/Momentum/img/Momentum Icon.png">
     <title>Log In</title>
 </head>
 <body>
 
 <div class="split-container">
     <div class="left-half">
-        <img src="/momentum/img/GIF Log In.gif" alt="Gif de un Stickman haciendo skate">
+        <img src="/Momentum/img/GIF Log In.gif" alt="Gif de un Stickman haciendo skate">
     </div>
     <div class="right-half">
         <div class="logoCompleto">
-            <img src="/momentum/img/Black Logo.png" alt="Logo de la marca">
+            <img src="/Momentum/img/Black Logo.png" alt="Logo de la marca">
         </div>
 
         <form class="login-form" action="logIn.php" method="POST">
@@ -72,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php } ?>
 
             <div class="links-container">
-                <a href="/momentum/authentication/lostPassword/index.php">¿Has olvidado tu contraseña?</a>
-                <a href="/momentum/authentication/signIn/index.html">Crear cuenta</a>
+                <a href="/Momentum/authentication/lostPassword/index.php">¿Has olvidado tu contraseña?</a>
+                <a href="/Momentum/authentication/signIn/index.html">Crear cuenta</a>
             </div>
         </form>
     </div>

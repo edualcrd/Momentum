@@ -4,7 +4,7 @@ $error = "";
 $success = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once __DIR__ . "/../../php/conexion.php";
+    require_once __DIR__ . "/../../php/conexion.php"; // Ajusta según tu estructura
 
     $email = trim($_POST['email']);
 

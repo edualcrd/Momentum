@@ -29,5 +29,5 @@ $stmt->close();
 $conn->close();
 unset($_SESSION['email_registro']);
 
-header("Location: /momentum/authentication/logIn/index.html");
+header("Location: /Momentum/authentication/logIn/logIn.php");
 exit;
