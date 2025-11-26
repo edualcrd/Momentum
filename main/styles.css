@@ -55,6 +55,40 @@ html, body {
 
 /* 2. SECCIÓN DE PERFIL - CORREGIDA Y REFINADA */
 
+        .username-input-field {
+            font-size: 1.5em; 
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+            width: 200px;
+        }
+        .action-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        #save-button {
+            background-color: #fff1c7; 
+            color: rgb(0, 0, 0);
+        }
+        #cancel-button {
+            background-color: #fff1c7; /* Color rojo */
+            color: rgb(0, 0, 0);
+            margin-left: 5px;
+        }
+        .edit-icon {
+            cursor: pointer; /* Indica que se puede hacer clic */
+            margin-left: 5px;
+        }
+        /* Ajuste para que el nombre de usuario y los botones estén en línea */
+        #username-edit-container {
+            display: flex;
+            align-items: center;
+        }
+
 .profile-section {
     padding: 40px 20px;
     display: flex;
@@ -126,7 +160,6 @@ html, body {
     margin: 0;
 }
 
-/* Media Query para móvil: Apilar la imagen arriba del texto en pantallas pequeñas */
 @media (max-width: 768px) {
     .profile-content {
         flex-direction: column;
@@ -140,20 +173,18 @@ html, body {
     }
 
     .profile-info, .user-details {
-        align-items: center; /* Centra el contenido en móvil */
+        align-items: center; 
         text-align: center;
     }
     
     .username {
-        /* Centrar el nombre de usuario y el ícono en móvil */
         justify-content: center; 
         width: 100%;
     }
 }
 
-/* 3. SECCIÓN DE CONTENIDO (GALERÍA DE TRUCOS) */
 .content-section {
-    flex-grow: 1; /* Permite que esta sección ocupe el espacio restante */
+    flex-grow: 1;
     padding: 20px 50px 50px;
     display: flex;
     flex-direction: column;
@@ -166,43 +197,39 @@ html, body {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
-    position: relative; /* Importante para posicionar las flechas */
+    position: relative;
 }
 
 .tricks-list {
     display: flex;
     gap: 30px;
-    overflow-x: hidden; /* Esto oculta el scrollbar. JS se encargará del desplazamiento. */
+    overflow-x: hidden;
     flex-grow: 1;
-    scroll-behavior: smooth; /* Esto hace que el desplazamiento sea suave y animado */
-    padding: 10px 0; /* Un poco de padding vertical si usas box-shadow */
+    scroll-behavior: smooth;
+    padding: 10px 0;
 }
-
-/* ... (El resto de .trick-card, .trick-name, etc. se mantiene igual) ... */
 
 .carousel-arrow {
     font-size: 30px;
     color: #000;
     cursor: pointer;
     padding: 10px;
-    z-index: 10; /* Asegura que la flecha esté por encima de los trucos */
-    user-select: none; /* Evita que se seleccione el ícono */
+    z-index: 10;
+    user-select: none;
 }
 
-/* Estilo para la flecha izquierda */
 #leftArrow {
-    margin-right: 20px; /* Espacio antes del listado */
+    margin-right: 20px;
 }
 
-/* Estilo para la flecha derecha */
+
 #rightArrow {
-    margin-left: 20px; /* Espacio después del listado */
+    margin-left: 20px;
 }
 
-/* ... (El resto del CSS se mantiene igual) ... */
 
 .trick-card {
-    min-width: 250px; /* Ancho base de cada tarjeta */
+    min-width: 250px;
     max-width: 250px;
     background: #fff;
     border-radius: 8px;
@@ -224,18 +251,18 @@ html, body {
     margin-bottom: 15px;
 }
 
-.video-placeholder { /* Puedes mantener este si quieres que siga siendo un placeholder */
-    display: none; /* Oculta el placeholder cuando hay un video */
+.video-placeholder {
+    display: none;
 }
 
-/* Nuevo contenedor para el video */
+
 .video-container {
     width: 100%;
-    height: 180px; /* Misma altura que el placeholder */
-    background-color: #000; /* Fondo negro para el video */
+    height: 180px;
+    background-color: #000;
     border-radius: 4px;
-    overflow: hidden; /* Asegura que el video no se salga de los bordes redondeados */
-    display: flex; /* Para centrar el video si no llena todo el espacio */
+    overflow: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -243,8 +270,8 @@ html, body {
 .trick-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que el video cubra el contenedor sin distorsionarse */
-    border-radius: 4px; /* Para que el video también tenga los bordes redondeados */
+    object-fit: cover;
+    border-radius: 4px;
 }
 
 .carousel-arrow {
@@ -255,7 +282,6 @@ html, body {
     padding: 10px;
 }
 
-/* Botón Añadir Truco */
 .add-trick-button {
     padding: 12px 25px;
     border: 2px solid #000;
@@ -279,7 +305,6 @@ html, body {
     margin-right: 8px;
 }
 
-/* Media Query: Ocultar el cuarto truco en pantallas más pequeñas */
 @media (max-width: 1100px) {
     .hidden-on-mobile {
         display: none;
@@ -296,7 +321,7 @@ html, body {
     }
 
     .trick-card {
-        min-width: 45%; /* Ajuste para mostrar 2 columnas en móvil */
+        min-width: 45%;
         max-width: 45%;
     }
     
