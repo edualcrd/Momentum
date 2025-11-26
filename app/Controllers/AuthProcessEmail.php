@@ -1,4 +1,5 @@
 <?php
+//Este archivo antes se llamaba processEmail.php y estaba en la carpeta /authentication/signIn
 session_start();
 require_once "../../php/conexion.php"; // Ajusta la ruta según tu estructura
 

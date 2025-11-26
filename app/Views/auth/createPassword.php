@@ -1,4 +1,5 @@
 <?php
+//Este archivo antes se llamaba createPassword.php y estaba en la carpeta /authentication/signIn/password
     session_start();
     if (!isset($_SESSION['email_registro'])) {
         header("Location: ../../logIn/logIn.php");

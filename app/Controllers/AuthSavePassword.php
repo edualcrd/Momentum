@@ -1,4 +1,5 @@
 <?php
+//Este archivo antes se llamaba savePassword.php y estaba en la carpeta /authentication/signIn/password
 session_start();
 
 // Importa la conexión correctamente

@@ -1,4 +1,5 @@
 <?php
+//Este archivo antes se llamaba index.php y estaba en la carpeta /authentication/lostPassword
 session_start();
 $error = "";
 $success = "";

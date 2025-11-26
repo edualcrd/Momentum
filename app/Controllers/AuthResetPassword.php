@@ -1,4 +1,5 @@
 <?php
+//Este archivo antes se llamaba resetPassword.php y estaba en la carpeta /authentication/lostPassword
 session_start();
 require_once __DIR__ . "/../../php/conexion.php";
 

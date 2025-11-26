@@ -1,4 +1,5 @@
-    html, body {
+/* Este archivo se llamaba styles.css y se ubicaba en /authentication/login*/
+html, body {
         height: 100%;
         margin: 0;
         padding: 0;

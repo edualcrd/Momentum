@@ -1,4 +1,4 @@
-
+//Este archivo se llamaba carousel.js y estaba en la carpeta /main/
 const tricksList = document.getElementById('tricksList');
 const leftArrow = document.getElementById('leftArrow');
 const rightArrow = document.getElementById('rightArrow');

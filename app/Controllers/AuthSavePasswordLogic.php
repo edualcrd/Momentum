@@ -1,4 +1,5 @@
 <?php
+//Este archivo se llamaba signIn.php y estaba en la carpeta /authentication/signIn/password
 session_start();
 require_once __DIR__ . "/../../php/conexion.php";  // Ruta corregida
 

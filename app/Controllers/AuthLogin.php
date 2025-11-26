@@ -1,4 +1,5 @@
 <?php
+//Este archivo antes se llamaba logIn.php y estaba en la carpeta /authentication/logIn
 session_start();
 require_once __DIR__ . "/../../php/conexion.php"; // Ajusta según tu estructura
 

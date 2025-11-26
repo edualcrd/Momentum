@@ -1,4 +1,5 @@
 <?php
+//Esta clase antes se llamaba conexion.php y estaba en la carpeta /php
 $servername = "localhost";
 $username = "root";
 $password = "";

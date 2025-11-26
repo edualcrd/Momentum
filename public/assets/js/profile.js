@@ -1,4 +1,5 @@
-    const usernameDisplay = document.getElementById('username-display');
+//Este archivo se llamaba profile.js y estaba en la carpeta /main/
+const usernameDisplay = document.getElementById('username-display');
     const editIcon = document.getElementById('edit-icon');
     const editContainer = document.getElementById('username-edit-container');
     const usernameInput = document.getElementById('username-input');
