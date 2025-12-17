@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Este correo ya está registrado. <a href='../logIn/index.html'>Iniciar sesión</a>");
     } else {
         $_SESSION['email_registro'] = $email;
-        header("Location: password/createPassword.php");
+        header("Location: " . __DIR__ . "/password/createPassword.php");
         exit;
     }
 

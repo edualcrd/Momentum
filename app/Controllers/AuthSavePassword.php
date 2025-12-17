@@ -1,12 +1,10 @@
 <?php
-//Este archivo antes se llamaba savePassword.php y estaba en la carpeta /authentication/signIn/password
 session_start();
 
-// Importa la conexión correctamente
 require_once __DIR__ . "/../../../php/conexion.php";
 
 if (!isset($_SESSION['email_registro'])) {
-    header("Location: /momentum/authentication/logIn/logIn.php");
+    header("Location: /Momentum/authentication/logIn/logIn.php");
     exit;
 }
 
@@ -15,12 +13,11 @@ $password = $_POST['password'];
 $confirm = $_POST['confirm_password'];
 
 if ($password !== $confirm) {
-    die("Las contraseñas no coinciden. <a href='createPassword.php'>Volver</a>");
+    die("Las contraseñas no coinciden. <a href='/Momentum/authentication/signUp/createPassword.php'>Volver</a>");
 }
 
 $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-// Insertar usuario
 $sql = "INSERT INTO usuarios (email, password) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $email, $password_hash);
