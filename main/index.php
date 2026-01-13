@@ -112,8 +112,9 @@ $result_trucos = $stmt_trucos->get_result();
 
                                 <div class="video-container">
                                     <?php if ($truco['tipo'] == 'video'): ?>
-                                        <video class="trick-video" autoplay loop muted playsinline>
-                                            <source src="<?php echo htmlspecialchars($truco['media_url']); ?>" type="video/mp4">
+                                        <video class="trick-video" autoplay loop muted playsinline controls>
+                                            <source src="<?php echo htmlspecialchars($truco['media_url']); ?>">
+                                            Tu navegador no soporta este video.
                                         </video>
                                     <?php else: ?>
                                         <img src="<?php echo htmlspecialchars($truco['media_url']); ?>" class="trick-video gif-image">
