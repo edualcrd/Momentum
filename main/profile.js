@@ -1,74 +1,82 @@
-// Obtener todos los elementos del DOM necesarios
-const usernameDisplay = document.getElementById('usernameDisplay');
-const editUsernameInput = document.getElementById('editUsernameInput');
-const editIcon = document.getElementById('editIcon');
-
-const usernameText = document.querySelector('.username-text'); 
-const usernameField = document.getElementById('usernameField');
-
-const bioText = document.getElementById('bioText');
-const bioField = document.getElementById('bioField');
-const saveIcon = document.getElementById('saveIcon');
-
-// --- 1. Función para activar el modo de edición ---
-function enableEditMode() {
-    // OCULTAR elementos de visualización
-    usernameDisplay.style.display = 'none';
-    bioText.style.display = 'none';
+document.addEventListener('DOMContentLoaded', () => {
+    const viewMode = document.getElementById('viewMode');
+    const editMode = document.getElementById('editMode');
     
-    // MOSTRAR elementos de edición
-    editUsernameInput.style.display = 'flex';
-    bioField.style.display = 'block';
-    saveIcon.style.display = 'block';
-    
-    // Cargar valores actuales en los campos
-    usernameField.value = usernameText.textContent.trim();
-    bioField.value = bioText.textContent.trim();
-    
-    // Enfocar el primer campo
-    usernameField.focus();
-}
+    const editIcon = document.getElementById('editIcon');
+    const saveBtn = document.getElementById('saveBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
 
-// --- 2. Función para guardar y salir del modo de edición ---
-function saveProfile() {
-    let newUsername = usernameField.value.trim();
-    const newBio = bioField.value.trim();
-    
-    // Validación básica
-    if (newUsername === "") {
-        alert("El nombre de usuario no puede estar vacío.");
-        usernameField.focus();
-        return;
-    }
+    // Inputs
+    const editUsername = document.getElementById('editUsername');
+    const editGroup = document.getElementById('editGroup');
+    const editBio = document.getElementById('editBio');
+    const editPhoto = document.getElementById('editPhoto'); // Nuevo input de foto
 
-    // Asegurar que el nombre de usuario comience con @
-    if (!newUsername.startsWith('@')) {
-        newUsername = '@' + newUsername;
-    }
+    // Displays (Visualización)
+    const usernameDisplay = document.getElementById('usernameDisplay');
+    const groupDisplay = document.getElementById('groupDisplay');
+    const bioDisplay = document.getElementById('bioDisplay');
+    const profilePicDisplay = document.getElementById('profilePicDisplay'); // Imagen principal
 
-    // Actualizar el texto de visualización
-    usernameText.textContent = newUsername;
-    bioText.textContent = newBio;
-    
-    // Volver al modo de visualización: OCULTAR elementos de edición
-    editUsernameInput.style.display = 'none';
-    bioField.style.display = 'none';
-    saveIcon.style.display = 'none';
-    
-    // MOSTRAR elementos de visualización
-    usernameDisplay.style.display = 'flex';
-    bioText.style.display = 'block';
-    
-    // Código para enviar los datos al servidor...
-    console.log(`Perfil guardado: Usuario: ${newUsername}, Biografía: ${newBio}`);
-}
+    // 1. Abrir modo edición
+    editIcon.addEventListener('click', () => {
+        viewMode.style.display = 'none';
+        editMode.style.display = 'block';
+    });
 
-// --- 3. Asignar Event Listeners ---
+    // 2. Cancelar
+    cancelBtn.addEventListener('click', () => {
+        editMode.style.display = 'none';
+        viewMode.style.display = 'block';
+        // Resetear valores
+        editUsername.value = usernameDisplay.innerText;
+        editGroup.value = groupDisplay.innerText;
+        editBio.value = bioDisplay.innerText;
+        editPhoto.value = ""; // Limpiar input de archivo
+    });
 
-editIcon.addEventListener('click', enableEditMode);
-saveIcon.addEventListener('click', saveProfile);
-usernameField.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') { 
-        saveProfile();
-    }
+    // 3. Guardar cambios (Ahora soporta archivos)
+    saveBtn.addEventListener('click', () => {
+        const formData = new FormData();
+        
+        // Añadir textos
+        formData.append('username', editUsername.value);
+        formData.append('grupo', editGroup.value);
+        formData.append('biografia', editBio.value);
+        
+        // Añadir foto SOLO si el usuario seleccionó una nueva
+        if (editPhoto.files.length > 0) {
+            formData.append('foto', editPhoto.files[0]);
+        }
+
+        fetch('/Momentum/main/update_profile.php', {
+            method: 'POST',
+            body: formData // Enviamos FormData, NO JSON
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Actualizar textos en la vista
+                usernameDisplay.innerText = editUsername.value;
+                groupDisplay.innerText = editGroup.value;
+                bioDisplay.innerText = editBio.value;
+
+                // Si se subió foto nueva y el servidor devolvió la nueva URL
+                if (data.newPhotoUrl) {
+                    profilePicDisplay.src = data.newPhotoUrl;
+                }
+                
+                // Volver a vista normal
+                editMode.style.display = 'none';
+                viewMode.style.display = 'block';
+                editPhoto.value = ""; // Limpiar input
+            } else {
+                alert('Error al guardar: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error de conexión.');
+        });
+    });
 });

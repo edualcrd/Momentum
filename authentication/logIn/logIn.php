@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Login correcto
             $_SESSION['usuario_id'] = $id;
             $_SESSION['usuario_email'] = $email;
-            header("Location: /Momentum/main/index.html"); // Página protegida
+            header("Location: /Momentum/main/index.php"); // Página protegida
             exit;
         } else {
             $error = "Contraseña incorrecta.";
