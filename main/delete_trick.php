@@ -10,7 +10,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-// 2. Obtener ID del truco
+// 2. Obtener ID del truco desde el JSON recibido
 $input = json_decode(file_get_contents('php://input'), true);
 $trick_id = $input['id'] ?? null;
 $user_id = $_SESSION['usuario_id'];
@@ -21,8 +21,6 @@ if (!$trick_id) {
 }
 
 // 3. Obtener la ruta del archivo para borrarlo
-// IMPORTANTE: También verificamos "AND usuario_id = ?" para asegurarnos de que
-// nadie borre los trucos de otro usuario manipulando el ID.
 $stmt = $conn->prepare("SELECT media_url FROM trucos WHERE id = ? AND usuario_id = ?");
 $stmt->bind_param("ii", $trick_id, $user_id);
 $stmt->execute();
@@ -34,14 +32,17 @@ if ($result->num_rows === 0) {
 }
 
 $truco = $result->fetch_assoc();
-$fileUrl = $truco['media_url'];
+$fileUrl = $truco['media_url']; // Ej: /Momentum/uploads/5_65a4b_video.mp4
 
-// 4. Borrar archivo del servidor
-// Convertimos la URL relativa (ej: /Momentum/uploads/...) a ruta del sistema
-$filePath = __DIR__ . "/../../" . str_replace("/Momentum/", "", $fileUrl);
+// 4. CORRECCIÓN DE LA RUTA
+// Usamos basename() para obtener solo "5_65a4b_video.mp4"
+// Y construimos la ruta física correcta apuntando a ../uploads/
+$fileName = basename($fileUrl);
+$filePath = __DIR__ . "/../uploads/" . $fileName;
 
+// Borrar el archivo físico si existe
 if (file_exists($filePath)) {
-    unlink($filePath); // Borra el archivo físico
+    unlink($filePath);
 }
 
 // 5. Borrar de la base de datos
