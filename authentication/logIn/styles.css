@@ -1,94 +1,157 @@
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        box-sizing: border-box;
-        font-family: 'Open Sans', sans-serif;
-    }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
 
-    .split-container {
-        display: flex;
-        height: 100vh;
-        width: 100vw;
-    }
+.split-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
 
-    .left-half {
-        flex: 1;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .left-half img {
-        max-width: 80%;
-        height: auto;
-    }
+.left-half {
+    flex: 1;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .right-half {
-        flex: 1;
-        background: #fff1c7;
-        display: flex;
-        flex-direction: column;
-        align-items: center;  
-        justify-content: center; 
-        padding: 20px;
-    }
-    .logoCompleto svg {
+.left-half img {
+    max-width: 80%;
+    height: auto;
+}
+
+.right-half {
+    flex: 1;
+    background: #fff1c7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center; 
+    padding: 20px;
+}
+
+.logoCompleto svg {
     width: 100%;
     max-width: 500px; 
     height: auto;
     margin-bottom: 40px; 
 }
 
-    
-    .login-form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 400px; 
-    }
-    .login-form label {
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: #333;
-    }
-    .input-field {
-        padding: 12px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 16px;
-    }
-    .login-button {
-        padding: 14px;
-        border: none;
-        border-radius: 8px;
-        background-color: #000;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .login-button:hover {
-        background-color: #333;
-    }
-    .links-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-    }
-    .links-container a {
-        color: #000;
-        text-decoration: none;
-        font-size: 14px;
-    }
-    .links-container a:hover {
-        text-decoration: underline;
-    }
-    /* Animación del logo */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; 
+}
+
+.login-form label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* MICROINTERACCIÓN 1: Focus Dinámico */
+.input-field {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-field:focus {
+    border-color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+/* MICROINTERACCIÓN 2: Botón con Loading Spinner */
+.login-button {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    position: relative;
+}
+
+.login-button:hover {
+    background-color: #333;
+}
+
+.login-button:active {
+    transform: scale(0.97);
+}
+
+.login-button.loading {
+    color: transparent;
+    pointer-events: none;
+}
+
+.login-button.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* MICROINTERACCIÓN 3: Error Shake Animation */
+.error-msg-shake {
+    color: red;
+    margin-top: 15px;
+    font-weight: 600;
+    text-align: center;
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.links-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.links-container a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.links-container a:hover {
+    text-decoration: underline;
+}
+
+/* Animación del logo (Mantenida de tu compañero) */
 .logo-animate {
     animation: slideInPopSVG 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
     opacity: 0;
