@@ -34,12 +34,12 @@
         justify-content: center; 
         padding: 20px;
     }
-    .logoCompleto img {
-        width: 100%;
-        max-width: 500px; 
-        height: auto;
-        margin-bottom: 40px; 
-    }
+    .logoCompleto svg {
+    width: 100%;
+    max-width: 500px; 
+    height: auto;
+    margin-bottom: 40px; 
+}
 
     
     .login-form {
@@ -88,3 +88,36 @@
     .links-container a:hover {
         text-decoration: underline;
     }
+    /* Animación del logo */
+.logo-animate {
+    animation: slideInPopSVG 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+.logo-animate path,
+.logo-animate g {
+    animation: fadeInElements 0.6s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+@keyframes slideInPopSVG {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px) scale(0.8);
+    }
+    60% {
+        transform: translateX(10px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes fadeInElements {
+    to {
+        opacity: 1;
+    }
+}
