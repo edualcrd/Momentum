@@ -369,3 +369,15 @@ html, body {
     pointer-events: none; /* Evita doble clic */
     cursor: wait;
 }
+
+.btn-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit; /* Hereda el color del icono original */
+}
+.btn-icon:focus {
+    outline: 3px solid #000; /* Indicador visual de foco IMPORTANTE */
+    outline-offset: 2px;
+}

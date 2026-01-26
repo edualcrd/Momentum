@@ -92,7 +92,15 @@ $result_trucos = $stmt_trucos->get_result();
 
         <main class="content-section">
             <div class="tricks-gallery">
-                <i class="fas fa-chevron-left carousel-arrow" id="leftArrow"></i>
+                <button class="btn-icon carousel-arrow" id="leftArrow" aria-label="Ver truco anterior">
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <button class="btn-icon carousel-arrow" id="rightArrow" aria-label="Ver truco siguiente">
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                </button>
+                <button class="btn-icon edit-icon" id="editIcon" aria-label="Editar perfil de usuario">
+                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                </button><!--Antes usábamos iconos <i> que el teclado ignora. Ahora los envolvemos en <button> para que se puedan seleccionar con Tab y añadimos aria-label para que los ciegos escuchen "Editar perfil" en lugar de "botón"-->
 
                 <div class="tricks-list" id="tricksList">
                     <?php if ($result_trucos->num_rows > 0): ?>
